@@ -1,0 +1,4 @@
+nextcord==2.6.0
+nextcord_ext_menus==1.5.7
+pyserial==3.5
+python-dotenv==1.0.1

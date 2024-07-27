@@ -1,0 +1,17 @@
+{
+  "main": "./flash.js",
+  "output": "./flash.blob",
+  "assets": {
+    "adk.hex": "compiled/adk.hex",
+    "circuit-playground-classic.hex": "compiled/circuit-playground-classic.hex",
+    "duemilanove168.hex": "compiled/duemilanove168.hex",
+    "esplora.hex": "compiled/esplora.hex",
+    "leonardo.hex": "compiled/leonardo.hex",
+    "lilypad-usb.hex": "compiled/lilypad-usb.hex",
+    "mega.hex": "compiled/mega.hex",
+    "micro.hex": "compiled/micro.hex",
+    "nano.hex": "compiled/nano.hex",
+    "uno.hex": "compiled/uno.hex",
+    "yun.hex": "compiled/yun.hex"
+  }
+}
