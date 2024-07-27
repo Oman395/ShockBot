@@ -25,9 +25,9 @@ There are two components to the shock controller, being the transmitter, and a d
 # Transmitter
 ## Building the Transmitter
 ### Parts List
-- Arduino of any kind, this project was tested on an [Arduino Nano](https://store.arduino.cc/products/arduino-nano), which can be found for cheap on [Amazon](https://www.amazon.com/LAFVIN-Board-ATmega328P-Micro-Controller-Arduino/dp/B07G99NNXL).
+- Arduino of any kind, this project was tested on an [Arduino Nano](https://store.arduino.cc/products/arduino-nano), which can be found for cheap on [Aliexpress](https://www.aliexpress.us/item/3256804883476369.html).
 - 433 MHz Transmitter, found on [Aliexpress](https://www.aliexpress.us/item/3256806137174797.html?channel=twinner ), or [Amazon](https://a.co/d/cJgeM4a)
-- (Optional) [Cable connectors](https://a.co/d/dbkOOgF), if you don't have a soldering iron.
+- (Optional) [Female to Female Cable connectors](https://www.aliexpress.us/item/3256804460701476.html), if you don't have a soldering iron.
 
 ## Assembly
 - This will be using the Arduino Nano as an example, as that is what this project is built on. This should be easily changed for any other arduinos as long as the pins line up.
