@@ -42,16 +42,16 @@ Each pin is labeled on the Arduino and Transmitter, Connect GND to GND, and 5V t
 
 This can be done with your cable connectors, or with wires and solder.
 
-![image](https://github.com/user-attachments/assets/1ba75857-157b-47a0-8d32-01aeb5273696)
-![image](https://github.com/user-attachments/assets/4276c202-018c-44e9-8594-393329b440b7)
+![Picture of a 433MHz transmitter with the ground and vcc connected](images/1ba75857-157b-47a0-8d32-01aeb5273696.png)
+![An arduino nano with the 5v pin and ground pin connected](images/4276c202-018c-44e9-8594-393329b440b7.png)
 
 #### Step two
 
 Connect the transmitter's output to the Arduino. In this picture it is from yellow to yellow. 
 
 Connect the pin labeled D2 on the Arduino to the unlabeled remaining pin on the transmitter.
-![image](https://github.com/user-attachments/assets/0efb3dda-313d-49ec-b7fd-927e707daf93)
-![image](https://github.com/user-attachments/assets/13b34efb-7fa4-475a-8db4-17cfe408e047)
+![433MHz transmitter with wires connected to the ground, vcc, and data pins](images/0efb3dda-313d-49ec-b7fd-927e707daf93.png)
+![Arduino nano with a wire connected to the second digital pin](images/13b34efb-7fa4-475a-8db4-17cfe408e047.png)
 
 And you're done! From here, just plug in the Arduino into the computer.
 
