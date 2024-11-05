@@ -76,11 +76,11 @@ You will need to have done everything under [Transmitter](#transmitter) before d
 - [Package Installer for Python](https://pip.pypa.io/en/stable/installation/), or pip, is required to install some dependencies. In your command terminal (Which can be opened with Windows + R, then typing cmd), paste in `python -m ensurepip --upgrade` and let it run.
 
 ## Running the Bot
-- Download this repository and unzip it. Go into the `ShockBot` folder, then the `discord_bot` folder, and open the file labeled `.env`
+- Download this repository and unzip it. Go into the `ShockBot` folder, then the `discord_bot` folder, and create a file named `.env`
   - Open up the [Discord Developer Portal](https://discord.com/developers/applications), and sign into your account. From there, click "New Application. Give it any name you want, and click Create
   - From there, go to the `Installation` tab, and enable User Install if it is not enabled already.
   - Then, go to the Bot tab, and click `Reset Token`. Copy the new token it displays.
-  - Go back to the `.env` file in the `ShockBot` folder, and paste it between the quotation marks.
+  - Go back to the `.env` file in the `discord_bot` folder, and write the line `bot_token=""` and paste the token between the quotation marks.
 - Next, open `config.json` in the same folder.
   - Open discord, and get your User ID. 
     - This can be done by going to your settings, then advanced, and turning on Developer Mode. 

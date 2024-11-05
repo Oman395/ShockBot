@@ -2,6 +2,8 @@ import nextcord
 from nextcord.ext import commands
 from helpers import jsonHelper, embedHelper, arduinoHelper
 import asyncio
+import pathlib
+path = pathlib.Path(__file__).parent.parent.resolve()
 
 config = jsonHelper.loadConfig()
 
@@ -20,7 +22,7 @@ async def shock(intensity, dur, mode):
         dur = 1
     if(dur >= 256):
         dur = 255
-    print(dur)
+    #print(dur)
     arduinoHelper.arduino.write(bytearray([modes[mode], 1, intensity, dur]))
     await asyncio.sleep(0.05)
     data = arduinoHelper.arduino.readline()
@@ -40,7 +42,7 @@ class Shock(commands.Cog):
         """
         Send a shock!
         """
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(ctx.user.id not in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Shock Unsuccessful!",
@@ -59,7 +61,7 @@ class Shock(commands.Cog):
             "Shock Successful!",
             "Please await your cries."
         ))
-            print(f"Shocked at power: {power} for duration: {duration}")
+            #print(f"Shocked at power: {power} for duration: {duration}")
         else:
             await ctx.send(embed = embedHelper.errEmbed(
             "Shock Unsuccessful!",
@@ -74,7 +76,7 @@ class Shock(commands.Cog):
         """
         Send a vibration!
         """
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(ctx.user.id not in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Vibration Unsuccessful!",
@@ -93,7 +95,7 @@ class Shock(commands.Cog):
             "Vibration Successful!",
             "Please await your cries."
         ))
-            print(f"Vibrated at power: {power} for duration: {duration}")
+            #print(f"Vibrated at power: {power} for duration: {duration}")
         else:
             await ctx.send(embed = embedHelper.errEmbed(
             "Vibration Unsuccessful!",
@@ -107,7 +109,7 @@ class Shock(commands.Cog):
         """
         Send a beep!
         """
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(ctx.user.id not in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Beep Unsuccessful!",
@@ -120,7 +122,7 @@ class Shock(commands.Cog):
             "Beep Successful!",
             "Please await your cries."
         ))
-            print(f"Beeped for duration: {duration}")
+            #print(f"Beeped for duration: {duration}")
         else:
             await ctx.send(embed = embedHelper.errEmbed(
             "Beep Unsuccessful!",
@@ -132,7 +134,7 @@ class Shock(commands.Cog):
         """
         Stop your shocker!
         """
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(ctx.user.id not in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Stop Unsuccessful!",
@@ -145,7 +147,7 @@ class Shock(commands.Cog):
             "Stop Successful!",
             "Please await your cries."
         ))
-            print(f"Stopped!")
+            #print(f"Stopped!")
         else:
             await ctx.send(embed = embedHelper.errEmbed(
             "Stop Unsuccessful!",
@@ -157,7 +159,7 @@ class Shock(commands.Cog):
         """
         Pair your shocker!
         """
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(ctx.user.id not in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Pair Unsuccessful!",
@@ -170,7 +172,7 @@ class Shock(commands.Cog):
             "Pair Successful!",
             "Please await your cries."
         ))
-            print(f"Pairing!")
+            #print(f"Pairing!")
         else:
             await ctx.send(embed = embedHelper.errEmbed(
             "Pair Unsuccessful!",
@@ -191,7 +193,7 @@ class Shock(commands.Cog):
                 f"You aren't authorized."
             ))
             return
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(user.id in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Whitelist Failed!",
@@ -199,7 +201,7 @@ class Shock(commands.Cog):
             ))
             return
         whitelist.append(user.id)
-        jsonHelper.setJson("data/whitelist.json", whitelist)
+        jsonHelper.setJson(path / "data/whitelist.json", whitelist)
         
         await ctx.send(embed = embedHelper.sucEmbed(
             "Whitelist Successful!",
@@ -219,7 +221,7 @@ class Shock(commands.Cog):
                 f"You aren't authorized."
             ))
             return
-        whitelist = jsonHelper.getJson("data/whitelist.json")
+        whitelist = jsonHelper.getJson(path / "data/whitelist.json")
         if(user.id not in whitelist):
             await ctx.send(embed = embedHelper.errEmbed(
                 "Whitelist Failed!",
@@ -228,7 +230,7 @@ class Shock(commands.Cog):
             return
         whitelist.remove(user.id)
     
-        jsonHelper.setJson("data/whitelist.json", whitelist)
+        jsonHelper.setJson(path / "data/whitelist.json", whitelist)
         
         await ctx.send(embed = embedHelper.sucEmbed(
             "Unwhitelist Successful!",
