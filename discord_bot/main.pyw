@@ -1,10 +1,13 @@
 import os
+import pathlib
 from dotenv import load_dotenv
 import nextcord
 from nextcord.ext import commands
 load_dotenv()
 from helpers import jsonHelper, embedHelper
 config = jsonHelper.loadConfig()
+
+path = pathlib.Path(__file__).parent.resolve()
 
 activity = nextcord.Activity(
     name="a bunch of freaks!!!",
@@ -18,7 +21,7 @@ bot = commands.Bot(intents = intents)
 
 @bot.event
 async def on_ready():
-    print(f"[bot] present as {bot.user}")
+    #print(f"[bot] present as {bot.user}")
     await bot.change_presence(status=nextcord.Status.online, activity=activity)
 
 async def on_message(message):
@@ -28,7 +31,7 @@ async def on_message(message):
 @bot.slash_command(description="Reload's the bots modules.")
 async def reload(ctx):
     config = jsonHelper.loadConfig()
-    for filename in os.listdir("./cogs"):
+    for filename in os.listdir(path / "cogs"):
         if filename.endswith(".py"):
             if filename[:-3] not in config["disabledCogs"]:
                 try:
@@ -58,7 +61,7 @@ async def reload(ctx):
         "All cogs have been reloaded."
     ))
 
-for filename in os.listdir("./cogs"):
+for filename in os.listdir(path / "cogs"):
     if filename.endswith(".py") and filename[:-3] not in config["disabledCogs"]:
         bot.load_extension(f"cogs.{filename[:-3]}")
 

@@ -1,4 +1,6 @@
 import json
+import pathlib
+path = pathlib.Path(__file__).parent.parent.resolve()
 
 def getJson(filePath: str):
     with open(filePath) as f:
@@ -11,4 +13,4 @@ def setJson(filePath: str, jsonData):
         json.dump(jsonData, f, indent=2)
 
 def loadConfig():
-    return getJson("./config.json")
+    return getJson(path / "config.json")
