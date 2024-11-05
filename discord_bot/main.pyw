@@ -1,4 +1,5 @@
 import os
+import pathlib
 from dotenv import load_dotenv
 import nextcord
 from nextcord.ext import commands
@@ -6,7 +7,6 @@ load_dotenv()
 from helpers import jsonHelper, embedHelper
 config = jsonHelper.loadConfig()
 
-import pathlib
 path = pathlib.Path(__file__).parent.resolve()
 
 activity = nextcord.Activity(
